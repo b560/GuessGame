@@ -1,0 +1,35 @@
+<div id="header" *ngIf="numberOFGuesses < 6">
+  <h3 id="topic">5 Letter Word Guess Game</h3>
+  <h4 id="instruction">Game Instructions:</h4>
+  <ol id="instructionsteps">
+    <li>{{firstInstruction}}</li>
+    <li>{{secondInstruction}}</li>
+    <li>{{thirdInstruction}}</li>
+    <li>{{fourthInstruction}}</li>
+  </ol>
+</div>
+
+<div *ngIf="numberOFGuesses < 6" id="gameForm">
+  <form>
+    <label id="inputLabel">Enter 5 letter word in the text box</label>
+    <input type="text" name="guessedData" [(ngModel)]="guess.guessedData" #guessedData="ngModel" required minlength="5"
+      maxlength="5" (input)="guessInput($event)" (keydown.space)="$event.preventDefault()" pattern="[ a-zA-Z]*">
+
+    <button (click)="callGusseGameService()" [disabled]="guessedData.invalid">Play Game</button><br />
+    <p *ngIf="guessedData.touched && guessedData.invalid" id="errorMessage">This Game only accepts 5 letter
+      word</p>
+  </form>
+  <div *ngFor="let guessGameResult of guessGameResultList; let i = index">
+    <p *ngIf="guessedData.valid && isButtonClicked && i < 5"> {{guessGameResult.substring(0,7)}} <span
+        class="letter">{{guessGameResult.substring(7,8)}} </span>
+      {{guessGameResult.substring(8,guessGameResult.length)}} </p>
+
+    <div id="resultMessage" *ngIf="i == 5 && isButtonClicked">
+      <p>{{messageResult(+guessGameResult)}}</p>
+    </div>
+  </div>
+</div>
+
+<div id="finalMessage" *ngIf="numberOFGuesses == 6">
+  <span> The Game is over. Please refresh the browser and try again!!!</span>
+</div>
