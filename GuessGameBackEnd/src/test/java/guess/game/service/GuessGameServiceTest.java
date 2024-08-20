@@ -1,4 +1,4 @@
-package guesse.game.service;
+package guess.game.service;
 
 import java.util.List;
 
@@ -8,14 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import guesse.game.service.GusseGameService;
+import guess.game.service.GuessGameService;
 
 @SpringBootTest
 @TestPropertySource("classpath:application-test.properties")
 public class GuessGameServiceTest {
 
 	@Autowired
-	private GusseGameService guessGameService;
+	private GuessGameService guessGameService;
 
 	@Test
 	public void validate_word_with_incorrect_characters() {
@@ -40,21 +40,21 @@ public class GuessGameServiceTest {
 	}
 
 	@Test
-	public void null_guesse_input_should_return_exception() throws Exception {
+	public void null_guess_input_should_return_exception() throws Exception {
 		Throwable exception = Assertions.assertThrows(RuntimeException.class,
 				() -> guessGameService.validateCharacters(null));
 		Assertions.assertEquals("The guessed string length must be equal to 5", exception.getMessage());
 	}
 
 	@Test
-	public void guesse_input_greaterthan_five_should_return_exception() throws Exception {
+	public void guess_input_greaterthan_five_should_return_exception() throws Exception {
 		Throwable exception = Assertions.assertThrows(RuntimeException.class,
 				() -> guessGameService.validateCharacters("Friends"));
 		Assertions.assertEquals("The guessed string length must be equal to 5", exception.getMessage());
 	}
 	
 	@Test
-	public void guesse_input_lessthan_five_should_return_exception() throws Exception {
+	public void guess_input_lessthan_five_should_return_exception() throws Exception {
 		Throwable exception = Assertions.assertThrows(RuntimeException.class,
 				() -> guessGameService.validateCharacters("Lies"));
 		Assertions.assertEquals("The guessed string length must be equal to 5", exception.getMessage());

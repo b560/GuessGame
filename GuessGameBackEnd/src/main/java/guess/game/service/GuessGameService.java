@@ -1,4 +1,4 @@
-package guesse.game.service;
+package guess.game.service;
 
 import java.util.Arrays;
 import java.util.List;
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GusseGameService {
+public class GuessGameService {
 
 	@Value("${original.word}")
 	private String originalWord;
@@ -25,13 +25,13 @@ public class GusseGameService {
 			throw new RuntimeException("The guessed string length must be equal to 5");
 		}
 		String characterDescription = "";
-		int correctGuesse = 0;
+		int correctGuess = 0;
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < guessedWord.length(); i++) {
 			if (originalWord.contains(String.valueOf(guessedWord.charAt(i)))) {
 				if (guessedWord.charAt(i) == originalWord.charAt(i)) {
 					characterDescription = guessDescriptionList.get(0);
-					correctGuesse++;
+					correctGuess++;
 				} else {
 					characterDescription = guessDescriptionList.get(1);
 				}
@@ -42,7 +42,7 @@ public class GusseGameService {
 			sb.append(LETTER).append(EMPTY).append(guessedWord.charAt(i)).append(EMPTY).append(characterDescription)
 					.append(COMMA);
 		}
-		sb.append(correctGuesse);
+		sb.append(correctGuess);
 
 		return Arrays.asList(sb.toString().split(COMMA));
 
