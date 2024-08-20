@@ -1,3 +1,3 @@
-export class Guess{
+export class Guesse{
     constructor(public guessedData :string){}
 }

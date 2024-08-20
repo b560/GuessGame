@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { KeyValuePipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { GuessService } from './services/guesses.services';
-import {Guess} from './guess';
+import {Guesse} from './guesse';
 import { FormsModule } from '@angular/forms';
 import { AppConstants} from './constants/app.constants';
 
@@ -17,7 +17,7 @@ import { AppConstants} from './constants/app.constants';
 export class AppComponent {
   gussedWord : string  = '';
 
-  guess : Guess = new Guess("");
+  guess : Guesse = new Guesse("");
   guesseGameResultList : string[] = [];
   numberOFGuesses : number = 0;
   isButtonClicked : boolean = false;
