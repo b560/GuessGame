@@ -39,9 +39,11 @@ export class AppComponent {
 
   callGusseGameService(){
     this.numberOfGuesses++;
-    if(this.numberOfGuesses > 6){
-      this.isGameOver = true;
-      alert("You can only guesse for six times. Game Over");
+    if(this.numberOfGuesses ==6){
+      setTimeout(function(this:any){
+        this.isGameOver = true;
+        alert("You can only guesse for six times. Game Over");
+      }.bind(this), 1000);
     }
     this.guessService.callGuessData(this.guessedWord).subscribe({  
       next: x => this.guessGameResultList = x,  
