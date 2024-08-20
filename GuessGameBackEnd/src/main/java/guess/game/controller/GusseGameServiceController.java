@@ -15,9 +15,9 @@ public class GusseGameServiceController {
 	@Autowired
 	private GuessGameService guessService;
 	
-	@GetMapping("/guessedescriptions/{word}")
+	@GetMapping("/guessdescriptions/{word}")
 	@ResponseBody
-	public List<String>  guesses(@PathVariable("word") String guessWord) {
+	public List<String>  guessDescriptions(@PathVariable("word") String guessWord) {
 		return guessService.validateCharacters(guessWord);
 	}
 

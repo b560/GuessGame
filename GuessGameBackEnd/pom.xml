@@ -8,10 +8,10 @@
 		<version>3.3.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>SasProject</artifactId>
+	<groupId>guess.game</groupId>
+	<artifactId>GuessGameBackEnd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SasProject</name>
+	<name>GuessGameBackEnd</name>
 	<description>Demo project for SAS</description>
 	<packaging>war</packaging>
 	<url/>
