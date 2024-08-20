@@ -3,7 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { KeyValuePipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import { GuessService } from './services/guesses.services';
-import {Guesse} from './guesse';
+import {Guess} from './guess';
 import { FormsModule } from '@angular/forms';
 import { AppConstants} from './constants/app.constants';
 
@@ -15,11 +15,11 @@ import { AppConstants} from './constants/app.constants';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  gussedWord : string  = '';
+  guessedWord : string  = '';
 
-  guess : Guesse = new Guesse("");
-  guesseGameResultList : string[] = [];
-  numberOFGuesses : number = 0;
+  guess : Guess = new Guess("");
+  guessGameResultList : string[] = [];
+  numberOfGuesses : number = 0;
   isButtonClicked : boolean = false;
   firstInstruction: string = AppConstants.FIRST_INSTRUCTION;
   secondInstruction: string = AppConstants.SECOND_INSTRUCTION;
@@ -30,21 +30,21 @@ export class AppComponent {
   constructor(private  guessService: GuessService) {}
 
   guessInput(event:any) : any{
-    this.gussedWord = event.target.value;   
-    if(this.gussedWord.length < 5){
+    this.guessedWord = event.target.value;   
+    if(this.guessedWord.length < 5){
       this.isButtonClicked = false;  
     }                                                  
-    return this.gussedWord;
+    return this.guessedWord;
   }
 
   callGusseGameService(){
-    this.numberOFGuesses++;
-    if(this.numberOFGuesses > 6){
+    this.numberOfGuesses++;
+    if(this.numberOfGuesses > 6){
       this.isGameOver = true;
       alert("You can only guesse for six times. Game Over");
     }
-    this.guessService.callGuessData(this.gussedWord).subscribe({  
-      next: x => this.guesseGameResultList = x,  
+    this.guessService.callGuessData(this.guessedWord).subscribe({  
+      next: x => this.guessGameResultList = x,  
       error: err => console.error('An error occurred :', err),  
       complete: () => console.log('There are no more action happen.')  
     })

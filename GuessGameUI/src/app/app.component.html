@@ -19,13 +19,13 @@
     <p *ngIf="guessedData.touched && guessedData.invalid" id="errorMessage">This Game only accepts 5 letter
       word</p>
   </form>
-  <div *ngFor="let guesseGameResult of guesseGameResultList; let i = index">
-    <p *ngIf="guessedData.valid && isButtonClicked && i < 5"> {{guesseGameResult.substring(0,7)}} <span
-        class="letter">{{guesseGameResult.substring(7,8)}} </span>
-      {{guesseGameResult.substring(8,guesseGameResult.length)}} </p>
+  <div *ngFor="let guessGameResult of guessGameResultList; let i = index">
+    <p *ngIf="guessedData.valid && isButtonClicked && i < 5"> {{guessGameResult.substring(0,7)}} <span
+        class="letter">{{guessGameResult.substring(7,8)}} </span>
+      {{guessGameResult.substring(8,guessGameResult.length)}} </p>
 
     <div id="resultMessage" *ngIf="i == 5 && isButtonClicked">
-      <p>{{messageResult(+guesseGameResult)}}</p>
+      <p>{{messageResult(+guessGameResult)}}</p>
     </div>
   </div>
 </div>
