@@ -1,4 +1,4 @@
-package guess.game.service;
+package guesse.game.service;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package guess.game.service;
+package guesse.game.service;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 
-import guess.game.service.GusseGameService;
+import guesse.game.service.GusseGameService;
 
 @SpringBootTest
 @TestPropertySource("classpath:application-test.properties")
