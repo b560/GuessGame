@@ -18,31 +18,33 @@ export class AppComponent {
   gussedWord : string  = '';
 
   guess : Guess = new Guess("");
-  guessGameResultList : string[] = [];
+  guesseGameResultList : string[] = [];
   numberOFGuesses : number = 0;
   isButtonClicked : boolean = false;
   firstInstruction: string = AppConstants.FIRST_INSTRUCTION;
   secondInstruction: string = AppConstants.SECOND_INSTRUCTION;
   thirdInstruction: string = AppConstants.THIRD_INSTRUCTION;
   fourthInstruction: string = AppConstants.FOURTH_INSTRUCTION;
+  isGameOver : boolean = false;
 
   constructor(private  guessService: GuessService) {}
 
   guessInput(event:any) : any{
     this.gussedWord = event.target.value;   
     if(this.gussedWord.length < 5){
-      this.isButtonClicked = false;
+      this.isButtonClicked = false;  
     }                                                  
     return this.gussedWord;
   }
 
   callGusseGameService(){
     this.numberOFGuesses++;
-    if(this.numberOFGuesses >= 6){
-      alert("Game Over");
+    if(this.numberOFGuesses > 6){
+      this.isGameOver = true;
+      alert("You can only guesse for six times. Game Over");
     }
     this.guessService.callGuessData(this.gussedWord).subscribe({  
-      next: x => this.guessGameResultList = x,  
+      next: x => this.guesseGameResultList = x,  
       error: err => console.error('An error occurred :', err),  
       complete: () => console.log('There are no more action happen.')  
     })
