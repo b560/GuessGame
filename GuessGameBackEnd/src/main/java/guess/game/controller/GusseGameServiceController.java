@@ -18,7 +18,6 @@ public class GusseGameServiceController {
 	@GetMapping("/guessdescriptions/{word}")
 	@ResponseBody
 	public List<String>  guessDescriptions(@PathVariable("word") String guessWord) {
-		System.out.println("Hellow world");
 		return guessService.validateCharacters(guessWord);
 	}
 
