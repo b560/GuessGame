@@ -15,7 +15,7 @@ public class GusseGameServiceController {
 	@Autowired
 	private GuessGameService guessService;
 	
-	//Funtion taht expose the api to the UI.
+	//Function that  expose the api to the UI.
 	@GetMapping("/guessdescriptions/{word}")
 	@ResponseBody
 	public List<String>  guessDescriptions(@PathVariable("word") String guessWord) {
