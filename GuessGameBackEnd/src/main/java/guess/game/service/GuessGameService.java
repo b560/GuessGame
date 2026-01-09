@@ -21,7 +21,7 @@ public class GuessGameService {
 
 	public List<String> validateCharacters(String guessedWord) {
 
-		 //Add a check for a nullpointer exception
+		 //Add a check for a Nullpointerexception
 		if (guessedWord == null || guessedWord.length() != 5) {
 			throw new RuntimeException("The guessed string length must be equal to 5");
 		}
